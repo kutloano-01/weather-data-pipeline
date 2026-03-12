@@ -16,13 +16,15 @@ The pipeline demonstrates the basic **ETL (Extract, Transform, Load)** process u
 ## How the Pipeline Works
 
 1. **Extract**
-   - The pipeline retrieves weather data from the Open-Meteo API.
+   - The pipeline retrieves weather data (temperature, wind speed/direction, weather code, time) from the Open-Meteo API.
+   - Supports default cities or user-input cities at runtime
 
 2. **Transform**
    - The data is cleaned and converted into a structured format using pandas.
 
 3. **Load**
    - The processed data is saved into a CSV file for storage and analysis.
+   - Stores data in PostgreSQL (weather_data table)
 
 ## Project Structure
 ```
@@ -42,9 +44,12 @@ git clone https://github.com/yourusername/weather-data-pipeline.git
 Navigate to the project folder:
 cd weather-data-pipeline
 
+Create and activate a virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 
 Install the required packages:
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 
 ## Usage
